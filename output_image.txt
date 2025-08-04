@@ -1,0 +1,28 @@
+> iris install vim
+
+Updating iris repositorys...
+[########################] (出力後消える)
+
+suggested dependencies:
+	vim-rt-12-dev
+
+will installed:
+	vim-rt-12-dev
+	vim-12-dev
+
+continue?: y
+
+downloading packages...
+
+[#####################]   vim-12-dev.tar.xz
+12MiB/6MiB (0s)
+[#####################]   vim-rt-12-dev.tar.xz
+9MiB/5MiB (0s)
+
+installing packages...
+
+vim-12-dev	[##############]
+vim-rt-12-dev	[##############]
+
+
+

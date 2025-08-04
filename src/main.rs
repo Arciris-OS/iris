@@ -1,3 +1,7 @@
+mod install;
+mod utils;
+
+
 fn main() {
-    println!("Hello, world!");
+    utils::download::download_file("", "").unwrap();
 }

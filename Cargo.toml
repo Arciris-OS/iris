@@ -4,3 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+colored = "3.0.0"
+indicatif = "0.18.0"
+reqwest = { version = "0.12.22", features = ["blocking"] }
+tokio = { version = "1.47.1", features = ["full"] }
