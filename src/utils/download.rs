@@ -1,5 +1,5 @@
 use core::error;
-use std::{fs, io::{self, Read, Write}, path::Path};
+use std::{fs, io::{Read, Write}, path::Path};
 use indicatif::{ProgressBar, ProgressStyle};
 use reqwest::blocking;
 
@@ -7,6 +7,8 @@ use reqwest::blocking;
 
 
 pub fn download_file<T: AsRef<str>, P: AsRef<Path>>(url: T, path: P) -> Result<(), Box<dyn error::Error>>{
+    // 実はこれ実装するの人生で3回目ぐらい
+
     let path = path.as_ref();
     let url = url.as_ref();
     let client = blocking::Client::new();
@@ -23,10 +25,11 @@ pub fn download_file<T: AsRef<str>, P: AsRef<Path>>(url: T, path: P) -> Result<(
 
     progress_bar.set_style(
         ProgressStyle::default_bar()
-            .template("[{bar:40}]\t{msg}\n{bytes}/{total_bytes} ({eta})")?
+            .template("[{bar:23}]\t{msg}\n{bytes}/{total_bytes} ({eta})")?
             .progress_chars("#>-"),
     );
 
+    progress_bar.set_position(0);
     let mut downloaded: u64 = 0;
     let mut buffer = vec![0; 8192];
     let mut response = client.get(url).send()?;
