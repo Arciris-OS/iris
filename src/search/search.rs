@@ -28,11 +28,11 @@ pub fn search_package<P: AsRef<str>>(regex: P) {
 
 
     for package in results {
-        println!("{}-{} ({})\n{}",
+        println!("{}-{} ({})\n  {}",
             package.package,
             package.version,
             package.arch,
-            package.description,
+            package.description.split("\n").collect::<Vec<&str>>().first().unwrap(),
         );
     }
 
