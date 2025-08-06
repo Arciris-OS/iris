@@ -1,8 +1,6 @@
-use std::error;
 use std::process::exit;
-use crate::utils::{download, path_list, mirror};
+use crate::utils::{self, download, path_list, mirror};
 use crate::{print_error, Verbose};
-use serde::{Deserialize, Serialize};
 
 /// Get a sync list using mirror list
 pub fn get_synclist() -> Vec<String> {
@@ -25,6 +23,7 @@ pub fn sync_package_list(output: Verbose){
     let count = sync_list.iter().count();
 
     for (current, url) in sync_list.iter().enumerate() {
+        println!("Downloading {}...", url);
         if let Err(e) = download::download_file_sync(url, path_list::PACKAGE_LIST){
 
             if (current + 1) == count {
@@ -38,6 +37,7 @@ pub fn sync_package_list(output: Verbose){
             continue;
         };
     }
+    let _ = utils::decomp::decomp_xz(path_list::PACKAGE_LIST, path_list::DECOMPED_PACKAGE_LIST);
 }
 
 

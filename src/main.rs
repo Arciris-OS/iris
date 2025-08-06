@@ -5,6 +5,7 @@ mod sync;
 mod check;
 mod info;
 mod search;
+mod package_list;
 mod utils;
 
 
@@ -49,7 +50,7 @@ enum SubCommands {
 
     /// Search all packages
     Search {
-        regex: Option<String>,
+        regex: String,
     }
 }
 
@@ -69,7 +70,7 @@ fn main() {
         SubCommands::Info { package } => todo!("{}", package),
         SubCommands::Check { asynchronous, max_jobs, verify } => todo!(),
 
-        SubCommands::Search { regex } => todo!(),
+        SubCommands::Search { regex } => search::search::search_package(regex),
 
     }
 

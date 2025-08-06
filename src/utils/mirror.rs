@@ -1,4 +1,4 @@
-use std::{error, fs};
+use std::fs;
 use serde::{Deserialize, Serialize};
 use crate::utils::path_list::*;
 use crate::print_error;

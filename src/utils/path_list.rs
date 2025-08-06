@@ -7,4 +7,7 @@ pub const PACKAGE_LIST: &'static str = "/var/lib/iris/list/Packages.xz";
 pub const MIRROR_LIST: &'static str = "/etc/iris/config/mirrors.toml";
 
 
+/// Path for decomplessed package list
+/// /etc/iris/list/Packages
+pub const DECOMPED_PACKAGE_LIST: &'static str = "/var/lib/iris/list/Packages";
 
