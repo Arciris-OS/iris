@@ -8,6 +8,12 @@ mod search;
 mod utils;
 
 
+pub enum Verbose {
+    Default,
+    Quiet,
+    Verbose,
+}
+
 #[derive(Parser)]
 struct Cli {
     #[command(subcommand)]
@@ -58,7 +64,7 @@ fn main() {
             todo!();
         },
 
-        SubCommands::Sync => todo!(),
+        SubCommands::Sync => sync::sync::sync_package_list(Verbose::Default),
 
         SubCommands::Info { package } => todo!("{}", package),
         SubCommands::Check { asynchronous, max_jobs, verify } => todo!(),
